@@ -2,58 +2,85 @@
 
 **Find yourself roommates.**
 
-FindMyMate is an India-first, web-first roommate discovery concept. It helps people moving to a new city find potential roommates based on practical living preferences—not just rent and location.
+FindMyMate is an India-first roommate discovery concept. It is intended to help people moving to a new city find potential roommates based on day-to-day living preferences as well as practical needs such as budget and location.
 
-## Project status
+## Project and version status
 
-This repository contains the first frontend concept: a responsive landing page and an interactive discovery demo populated with fictional profiles. It is not a production roommate-matching service.
+| Version | Scope | Status |
+|---|---|---|
+| **0.1.0** | Responsive landing and discovery demo with fictional profiles, city and budget filters, and session-only like/pass actions | **Completed baseline** |
+| **0.2.0** | Multi-screen frontend prototype covering the user journey from account and onboarding screens through discovery, demo connections, settings, and safety | **Requirements documented; implementation pending milestone approval** |
+| **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Planned** |
 
-The demo has no account system, backend, messaging, verification, or real profile data. Like/pass choices exist only in the current page session. Do not enter personal information.
+Version 0.1.0 remains the preserved starting point. Its baseline overview is archived in [`docs/version-0.1.0.md`](docs/version-0.1.0.md), and its implementation remains available in Git history. Version 0.2.0 is a separately documented next phase; its requirements are in [`docs/version-0.2.0.md`](docs/version-0.2.0.md). The v0.2.0 brief requires a review and approval of Milestone 1 before product code changes begin.
+
+## Current application
+
+The current application is the v0.1.0 static frontend concept:
+
+- Responsive landing page and roommate discovery section.
+- Fictional sample profiles with illustrative shared-living highlights.
+- Destination-city and maximum-budget filters.
+- Like, pass, and reset actions held in page memory only.
+- Privacy and safety principles for the planned product.
+
+There is no account system, backend, real matching, messaging, verification, moderation service, or persistent profile data. Demo interactions do not contact another person. Do not enter real personal information. Compatibility descriptions are illustrative and are not validated recommendations or guarantees.
 
 ## Run locally
 
-No package installation is required. From this directory, start a local static server:
+No package installation is required. From the repository directory, start a static server:
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Then open [http://localhost:4173](http://localhost:4173).
+Open [http://localhost:4173](http://localhost:4173).
 
-## What's included
+## Version 0.2.0 development approach
 
-- Responsive product landing page
-- Fictional roommate cards with transparent lifestyle compatibility highlights
-- City and preference filters
-- Session-only like/pass interactions
-- Privacy and safety principles for the planned product
+Version 0.2.0 is scoped as a frontend prototype, not a production service. Its development brief calls for a guided, multi-screen experience with clearly labelled simulated features and fictional data. Real authentication, server-backed profiles, persistent matching, and production messaging are explicitly deferred.
 
-## Product direction
+Development is to proceed one approved milestone at a time. The initial proposed milestone covers project organisation and navigation, while ensuring the existing v0.1.0 functionality remains available and tested. No v0.2.0 application functionality is claimed as implemented in this repository at this stage.
 
-The initial product is intended to help room seekers and room sharers:
+## Progress record
 
-1. Create a profile and describe their accommodation needs.
-2. Share relevant routines and shared-living preferences.
-3. Discover profiles by city, budget, move-in timing, and lifestyle.
-4. Express interest and connect after mutual interest.
-5. Pause or close a search, and block or report concerning behaviour.
+### 2026-11-16 — Version 0.2.0 kickoff
 
-Exact addresses and private contact details must never appear on public profiles. Compatibility explanations should be understandable and must not be presented as a guarantee.
+- Archived the v0.1.0 project overview and preserved the original application code unchanged.
+- Added the supplied v0.2.0 development requirements to the repository.
+- Reviewed the existing implementation against the v0.2.0 requirements.
+- Recorded the review and proposed Milestone 1 approach below; implementation awaits approval in accordance with the v0.2.0 working agreement.
 
-## Planned next steps
+### Repository review and proposed first milestone
 
-- Validate the first-launch cities and onboarding needs with prospective users.
-- Finalise privacy, retention, safety, and moderation requirements.
-- Choose an authentication, API, database, and private media-storage approach.
-- Build real profiles, mutual matching, messaging, and report handling only after the backend and access controls are designed.
-- Conduct India-specific legal and security reviews before any public launch.
+**What exists and works:** the project uses plain HTML, CSS, and JavaScript; the landing page and discovery cards are responsive; the four fictional profiles can be filtered by city and maximum budget; users can like, pass, and reset demo choices for the current page session.
 
-## Development notes
+**Not yet implemented:** account screens, onboarding, editable profiles, profile details, dedicated likes/matches/messages screens, notifications, settings, safety/report workflows, persistent demo state, and the broader navigation.
 
-- The current demo is plain HTML, CSS, and JavaScript with no third-party runtime dependencies.
-- Keep secrets out of source control. `.env.example` contains placeholders only.
-- Do not add real user profiles, identity documents, home addresses, or private uploads to the repository.
+**Technical considerations:** the current app is a single HTML page with styles and interactions in root-level files. Profile cards are constructed with `innerHTML`; current profile content is fixed demo data, but future user-entered content must be rendered safely. There is no shared application navigation, multi-screen routing, persistence layer, form-validation approach, or automated test suite.
+
+**Proposed scope for Milestone 1:** make the smallest safe change needed to establish consistent navigation and reusable page structure, without introducing a framework or moving the working v0.1.0 files before a migration is justified. Preserve current discovery behavior and clearly identify any destinations that are not yet implemented.
+
+**Files anticipated for Milestone 1:** modify `index.html`, `styles.css`, and `app.js` only if needed for navigation and shared layout; add only the specific page or navigation files approved for the milestone. No existing files should be moved or deleted as part of this initial step.
+
+**Validation:** run the existing static server, verify each visible navigation destination behaves as specified, recheck city and budget filters, like/pass/reset actions, inspect mobile and desktop widths, and check for browser-console errors. The current v0.1.0 baseline should be confirmed before and after the change.
+
+## Product and privacy principles
+
+- Keep exact residential addresses and private contact details out of public profiles.
+- Collect only information needed for a clear product purpose.
+- Clearly distinguish fictional or simulated prototype interactions from real services.
+- Do not add real user profiles, identity documents, home addresses, credentials, or private uploads to the repository.
+- Review legal, privacy, security, and operational requirements before a public launch.
+
+## Development requirements
+
+- Continue with HTML, CSS, and JavaScript unless a documented reason supports a change.
+- Keep secrets out of source control; `.env.example` contains placeholders only.
+- Avoid dependencies unless their need is explained.
+- Test changes at mobile, tablet, and desktop sizes and preserve existing behavior.
+- Refer to the v0.2.0 document for its complete requirements, milestones, acceptance checklist, and working agreement.
 
 ## Disclaimer
 
-FindMyMate is an early product concept. Compatibility is subjective; this demo's sample indicators are illustrative only and are not a validated matching score or a guarantee of a successful living arrangement. This README is not legal advice or a declaration of regulatory compliance.
+FindMyMate is an early product concept. Compatibility is subjective; the sample indicators are illustrative and are not a validated matching score or a guarantee of a successful living arrangement. This README is not legal advice or a declaration of regulatory compliance.
