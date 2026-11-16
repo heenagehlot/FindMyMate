@@ -2,6 +2,8 @@
 
 **Find yourself roommates.**
 
+**Project owner:** Heenagehlot
+
 FindMyMate is an India-first roommate discovery concept. It is intended to help people moving to a new city find potential roommates based on day-to-day living preferences as well as practical needs such as budget and location.
 
 ## Project and version status
