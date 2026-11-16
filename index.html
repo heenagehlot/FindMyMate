@@ -19,14 +19,33 @@
         <span>findmymate<span class="brand-period">.</span></span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#how-it-works">How it works</a>
-        <a href="#discover">Find a roommate</a>
-        <a href="#safety">Our promise</a>
+        <a href="#home" data-page-link="home">Home</a>
+        <a href="#how-it-works" data-page-link="how-it-works">How it works</a>
+        <a href="#discover" data-page-link="discover">Find a roommate</a>
+        <a href="#safety" data-page-link="safety">Our promise</a>
       </nav>
-      <a class="header-cta" href="#discover">Explore matches <span aria-hidden="true">↗</span></a>
+      <div class="header-actions">
+        <a class="header-signin" href="#signin" data-page-link="signin">Sign in</a>
+        <a class="header-cta" href="#signup" data-page-link="signup">Create account <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
 
-    <main>
+    <nav class="prototype-nav" aria-label="Site and prototype navigation">
+      <div class="prototype-nav-inner">
+        <span class="prototype-nav-label">Prototype preview</span>
+        <a href="#dashboard" data-page-link="dashboard">Overview</a>
+        <a href="#discover" data-page-link="discover">Discover</a>
+        <a href="#likes" data-page-link="likes">Likes</a>
+        <a href="#matches" data-page-link="matches">Matches</a>
+        <a href="#messages" data-page-link="messages">Messages</a>
+        <a href="#profile" data-page-link="profile">My profile</a>
+        <a href="#settings" data-page-link="settings">Settings</a>
+        <a class="mobile-public-link" href="#how-it-works" data-page-link="how-it-works">How it works</a>
+        <a class="mobile-public-link" href="#safety" data-page-link="safety">Safety</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> A better move starts here</p>
@@ -164,6 +183,22 @@
           <div><span>03</span><p>Clear controls to block or report.</p><span aria-hidden="true">↗</span></div>
         </div>
       </section>
+    </main>
+
+    <main class="prototype-placeholder" id="prototype-placeholder" tabindex="-1" hidden>
+      <div class="placeholder-card">
+        <span class="placeholder-mark" aria-hidden="true">✳</span>
+        <p class="section-kicker"><span>FINDMYMATE PROTOTYPE</span></p>
+        <h1 id="placeholder-title" tabindex="-1">This screen is coming later.</h1>
+        <p id="placeholder-description">
+          This destination is planned for a later Version 0.2.0 milestone. No account or personal
+          information is being collected in this prototype.
+        </p>
+        <p class="placeholder-notice" id="placeholder-notice">
+          Navigation is available for preview; the feature itself is not implemented.
+        </p>
+        <a class="button button-dark" href="#home" data-page-link="home">Back to home <span aria-hidden="true">↗</span></a>
+      </div>
     </main>
 
     <footer class="site-footer">

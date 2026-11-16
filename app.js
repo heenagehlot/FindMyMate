@@ -66,9 +66,93 @@ const emptyState = document.querySelector("#empty-state");
 const cityFilter = document.querySelector("#city-filter");
 const budgetFilter = document.querySelector("#budget-filter");
 const toast = document.querySelector("#toast");
+const mainContent = document.querySelector("#main-content");
+const placeholder = document.querySelector("#prototype-placeholder");
+const placeholderTitle = document.querySelector("#placeholder-title");
+const placeholderDescription = document.querySelector("#placeholder-description");
+const placeholderNotice = document.querySelector("#placeholder-notice");
 const likedProfiles = new Set();
 const passedProfiles = new Set();
 let toastTimeout;
+
+const prototypeScreens = {
+  signin: {
+    title: "Sign-in is not available yet.",
+    description: "Account access is planned for a later Version 0.2.0 milestone.",
+    notice: "This prototype does not accept or store passwords. Do not enter account credentials.",
+  },
+  signup: {
+    title: "Account creation is not available yet.",
+    description: "Registration and onboarding are planned for later Version 0.2.0 milestones.",
+    notice: "This prototype does not collect names, email addresses, phone numbers, or passwords.",
+  },
+  likes: {
+    title: "Likes are coming later.",
+    description: "A dedicated Likes screen is planned for a later Version 0.2.0 milestone.",
+    notice: "Interest choices on Discover are temporary demo interactions and are not saved here.",
+  },
+  matches: {
+    title: "Matches are coming later.",
+    description: "A separate Matches screen with fictional mutual matches is planned for a later milestone.",
+    notice: "No mutual matching or connection is created by this prototype.",
+  },
+  messages: {
+    title: "Messages are coming later.",
+    description: "A simulated conversation list and chat screen are planned for a later milestone.",
+    notice: "There is no messaging service. No messages are delivered or stored.",
+  },
+  profile: {
+    title: "Your profile is coming later.",
+    description: "Profile preview and editing are planned for a later Version 0.2.0 milestone.",
+    notice: "No profile information is collected or stored in this prototype.",
+  },
+  settings: {
+    title: "Settings are coming later.",
+    description: "Privacy, visibility, notification, and demo settings are planned for a later milestone.",
+    notice: "No server-side settings or account controls are available in this prototype.",
+  },
+};
+
+function renderRoute() {
+  const route = window.location.hash.slice(1).toLowerCase();
+  const screen = prototypeScreens[route];
+  const isPlaceholder = Boolean(screen);
+
+  mainContent.hidden = isPlaceholder;
+  placeholder.hidden = !isPlaceholder;
+  document.querySelectorAll("[data-page-link]").forEach((link) => {
+    const active = link.dataset.pageLink === route
+      || (!route && link.dataset.pageLink === "home")
+      || (route === "home" && link.dataset.pageLink === "dashboard")
+      || (route === "dashboard" && link.dataset.pageLink === "home");
+    if (active) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  if (screen) {
+    placeholderTitle.textContent = screen.title;
+    placeholderDescription.textContent = screen.description;
+    placeholderNotice.textContent = screen.notice;
+    document.title = `${screen.title} — FindMyMate`;
+    placeholderTitle.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  document.title = "FindMyMate — find your kind of roommate";
+  if (route === "home" || route === "dashboard" || !route) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  const target = document.getElementById(route);
+  if (target) {
+    window.requestAnimationFrame(() => target.scrollIntoView());
+  }
+}
 
 function renderProfiles() {
   const city = cityFilter.value;
@@ -160,4 +244,6 @@ document.querySelector("#reset-demo").addEventListener("click", () => {
   showToast("Demo choices reset.");
 });
 
+window.addEventListener("hashchange", renderRoute);
+renderRoute();
 renderProfiles();
