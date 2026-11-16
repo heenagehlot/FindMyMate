@@ -1,9 +1,9 @@
 # FindMyMate — Version 0.2.0 Development Requirements
 
-**Document type:** Next-version product and development specification  
-**Current baseline:** Version 0.1.0 — frontend concept / discovery dashboard  
-**Target:** Version 0.2.0 — complete multi-screen frontend prototype  
-**Status:** Proposed  
+**Document type:** Next-version product and development specification
+**Current baseline:** Version 0.1.0 — frontend concept / discovery dashboard
+**Target:** Version 0.2.0 — complete multi-screen frontend prototype
+**Status:** Proposed
 **Repository:** https://github.com/heenagehlot/FindMyMate
 
 ---
