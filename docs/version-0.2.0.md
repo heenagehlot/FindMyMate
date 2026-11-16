@@ -3,7 +3,7 @@
 **Document type:** Next-version product and development specification
 **Current baseline:** Version 0.1.0 — frontend concept / discovery dashboard
 **Target:** Version 0.2.0 — complete multi-screen frontend prototype
-**Status:** Proposed
+**Status:** Frontend prototype complete; production services are deferred to Version 0.3.0
 **Repository:** https://github.com/heenagehlot/FindMyMate
 
 ---
@@ -281,31 +281,43 @@ This is a proposed structure, not an instruction to move all files immediately.
 ## 10. Development milestones
 
 ### Milestone 1 — Organisation and navigation
+**Status: Complete**
+
 Inspect current files, identify working features, propose a minimal structure, establish shared styles/layout, implement navigation, and test that the original demo still works.
 
 **Done when:** all main destinations are reachable and no existing working feature is broken.
 
 ### Milestone 2 — Account UI and onboarding
+**Status: Complete**
+
 Build sign-up/sign-in demo screens, validation, multi-step onboarding, relocation, accommodation, lifestyle questionnaire, review, and completion.
 
 **Done when:** a user can complete demo onboarding and view a profile preview without entering real sensitive data.
 
 ### Milestone 3 — Profile and discovery
+**Status: Complete**
+
 Build profile preview/edit, improved cards, filters, sorting, profile details, compatibility explanations, and empty/reset states.
 
 **Done when:** the user can edit a demo profile, filter sample profiles, and inspect details.
 
 ### Milestone 4 — Likes, matches, and messaging demo
+**Status: Complete**
+
 Build separate Likes and Matches pages, conversation list/detail, local demo sending, and unmatch confirmation.
 
 **Done when:** the user can explore the intended connection journey and every simulated action is labelled.
 
 ### Milestone 5 — Settings, privacy, and safety
+**Status: Complete**
+
 Build visibility controls, block list, report form, safety information, notifications, settings, and demo sign-out.
 
 **Done when:** users can find safety information and try the demo privacy/report controls.
 
 ### Milestone 6 — Responsive testing and release cleanup
+**Status: Complete**
+
 Test target widths, fix accessibility/layout issues, check console errors, test empty/invalid/long content, update README, and add release notes.
 
 **Done when:** the prototype is navigable, consistent, responsive, and honestly documented.
@@ -329,24 +341,24 @@ Real-time messaging, identity verification, advanced group matching, payments, p
 
 ## 12. Acceptance checklist
 
-- [ ] Version 0.1.0 remains available in Git history.
-- [ ] Consistent navigation works on desktop and mobile.
-- [ ] All main destinations open a real screen.
-- [ ] Sign-up/sign-in demo forms validate inputs.
-- [ ] Onboarding covers relocation, accommodation, and lifestyle preferences.
-- [ ] Demo profile can be previewed and edited.
-- [ ] Discovery has multiple filters and clear-all.
-- [ ] Profile details are accessible.
-- [ ] Likes, demo matches, and demo messages have separate screens.
-- [ ] Simulated features are clearly labelled.
-- [ ] Privacy and safety information is accessible.
-- [ ] Block/report controls have clear demo behaviour.
-- [ ] No exact addresses, real identity documents, or real contact information are shown.
-- [ ] App works at mobile, tablet, and desktop widths.
-- [ ] Forms have labels, validation, and keyboard support.
-- [ ] No known blocking browser-console errors remain.
-- [ ] README explains how to run the project and what is not real yet.
-- [ ] Changes are committed in small, understandable Git commits.
+- [x] Version 0.1.0 remains available in Git history.
+- [x] Consistent navigation works on desktop and mobile.
+- [x] All main destinations open a real screen.
+- [x] Sign-up/sign-in demo forms validate inputs.
+- [x] Onboarding covers relocation, accommodation, and lifestyle preferences.
+- [x] Demo profile can be previewed and edited.
+- [x] Discovery has multiple filters and clear-all.
+- [x] Profile details are accessible.
+- [x] Likes, demo matches, and demo messages have separate screens.
+- [x] Simulated features are clearly labelled.
+- [x] Privacy and safety information is accessible.
+- [x] Block/report controls have clear demo behaviour.
+- [x] No exact addresses, real identity documents, or real contact information are shown.
+- [x] App works at mobile, tablet, and desktop widths.
+- [x] Forms have labels, validation, and keyboard support.
+- [x] No known blocking browser-console errors remain.
+- [x] README explains how to run the project and what is not real yet.
+- [x] Changes are committed in a small, understandable Git commit.
 
 ## 13. Copilot working agreement
 
@@ -389,7 +401,7 @@ Wait for my approval before making changes.
 | Version | Scope | Status |
 |---|---|---|
 | 0.1.0 | Responsive landing/discovery demo with fictional profiles and session-only interactions | Completed |
-| 0.2.0 | Multi-screen frontend prototype: onboarding, profile, discovery, likes, matches, messaging demo, settings, safety | Next |
+| 0.2.0 | Multi-screen frontend prototype: onboarding, profile, discovery, likes, matches, messaging demo, settings, safety | Completed |
 | 0.3.0 | Backend, database, real authentication, persistent profiles, API foundation | Planned |
 | 0.4.0 | Production-oriented matching, messaging, notifications, moderation workflows | Future |
 | 1.0.0 | Reviewed and tested public MVP with operational and legal readiness | Future |

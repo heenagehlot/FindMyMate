@@ -9,24 +9,25 @@ FindMyMate is an India-first roommate discovery concept. It is intended to help 
 | Version | Scope | Status |
 |---|---|---|
 | **0.1.0** | Responsive landing and discovery demo with fictional profiles, city and budget filters, and session-only like/pass actions | **Completed baseline** |
-| **0.2.0** | Multi-screen frontend prototype covering the user journey from account and onboarding screens through discovery, demo connections, settings, and safety | **Milestone 1 complete; later milestones pending** |
+| **0.2.0** | Multi-screen frontend prototype covering account UI, onboarding, profile, discovery, demo connections, settings, notifications, and safety | **Frontend prototype complete** |
 | **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Planned** |
 
-Version 0.1.0 remains the preserved starting point. Its baseline overview is archived in [`docs/version-0.1.0.md`](docs/version-0.1.0.md), and its implementation remains available in Git history. Version 0.2.0 is a separately documented next phase; its requirements are in [`docs/version-0.2.0.md`](docs/version-0.2.0.md). The v0.2.0 brief requires a review and approval of Milestone 1 before product code changes begin.
+Version 0.1.0 remains the preserved starting point. Its baseline overview is archived in [`docs/version-0.1.0.md`](docs/version-0.1.0.md), and its implementation remains available in Git history. Version 0.2.0 scope, progress, and acceptance status are documented in [`docs/version-0.2.0.md`](docs/version-0.2.0.md).
 
 ## Current application
 
-The application preserves the v0.1.0 static frontend concept and adds the approved v0.2.0 Milestone 1 navigation shell:
+The application preserves the v0.1.0 landing and discovery concept and adds the v0.2.0 multi-screen prototype:
 
-- Responsive landing page and roommate discovery section.
-- Fictional sample profiles with illustrative shared-living highlights.
-- Destination-city and maximum-budget filters.
-- Like, pass, and reset actions held in page memory only.
-- Privacy and safety principles for the planned product.
-- Responsive navigation for the public sections and planned prototype destinations.
-- Clearly labelled placeholder screens for features scheduled in later milestones.
+- Sign-up and sign-in forms with client-side validation, password visibility, and a fictional demo sign-in.
+- Six-step onboarding for profile basics, relocation, accommodation, lifestyle preferences, illustration selection, and review.
+- Session-only profile preview and edit flow.
+- Fictional discovery profiles with city, budget, timing, accommodation, lifestyle, and sort controls; profile details; likes and passes.
+- Separate demo likes, matches, conversations, and notifications, with local-only actions.
+- Session-only settings, visibility controls, block/unblock, and report flows.
+- Safety guidance, FAQs, and About, Contact, Terms, Privacy, and Community prototype notices.
+- Responsive navigation and layouts for public and prototype screens.
 
-There is no account system, backend, real matching, messaging, verification, moderation service, or persistent profile data. Demo interactions do not contact another person. Do not enter real personal information. Compatibility descriptions are illustrative and are not validated recommendations or guarantees.
+This is a frontend prototype, not an operating service. There is no real account system, backend, matching, messaging, verification, moderation, or persistent profile data. Form and interaction state remains in page memory; passwords are cleared and are never saved or sent. All sample profiles are fictional. Do not enter real personal information. Compatibility descriptions are illustrative and are not validated recommendations or guarantees.
 
 ## Run locally
 
@@ -40,9 +41,9 @@ Open [http://localhost:4173](http://localhost:4173).
 
 ## Version 0.2.0 development approach
 
-Version 0.2.0 is scoped as a frontend prototype, not a production service. Its development brief calls for a guided, multi-screen experience with clearly labelled simulated features and fictional data. Real authentication, server-backed profiles, persistent matching, and production messaging are explicitly deferred.
+Version 0.2.0 is scoped as a frontend prototype, not a production service. Its guided screens and simulated features use fictional data. Real authentication, server-backed profiles, persistent matching, and production messaging are explicitly deferred to later development.
 
-Development is proceeding one approved milestone at a time. Milestone 1 established project navigation while preserving the existing v0.1.0 functionality. The current navigation shell routes to the landing/discovery experience and clearly labelled placeholders for screens scheduled in later milestones. No account, matching, or messaging service is implemented.
+The six v0.2.0 frontend milestones are complete. The original v0.1.0 landing/discovery experience remains available, and every implemented account, profile, matching, messaging, settings, and safety action is labelled as a local simulation. No backend or production account, matching, or messaging service is implemented.
 
 ## Progress record
 
@@ -55,6 +56,16 @@ Development is proceeding one approved milestone at a time. Milestone 1 establis
 - Received approval to begin Milestone 1 implementation.
 - Added responsive site/prototype navigation and explicit placeholders for future screens; the v0.1.0 discovery filters and demo actions remain available.
 - Verified all navigation destinations, the existing discovery interactions, and layouts at 320px, 375px, 390px, 430px, 768px, 1366px, and 1440px.
+
+### 2026-11-16 — Version 0.2.0 frontend prototype
+
+- Completed the account, six-step onboarding, profile preview/edit, discovery, likes, matches, conversation, notification, settings, and safety/report screens with fictional data and session-only state.
+- Added password length, confirmation, email, optional phone, terms acceptance, required-field, and budget-range validation. Passwords are cleared after validation and are not sent or persisted.
+- Expanded lifestyle questions to cover daily routine, home environment, food and kitchen, chores, and household preferences; profile review preserves answers when navigating backward.
+- Added discovery filters, clear-all, move-in sorting, profile details, and the landing-page action for people who have a room to share.
+- Updated this README to distinguish the completed frontend prototype from future backend work; `docs/version-0.1.0.md` remains the archived v0.1.0 overview.
+- Exercised sign-up and onboarding in the browser, including invalid password and budget cases, back-navigation retention, profile completion, and checks that no password fields or local-storage data remain after registration.
+- Verified the prototype flows and no horizontal overflow at 320px, 375px, 390px, 430px, 768px, 1366px, and 1440px; browser checks found no page-level errors. All interactions remain local demonstrations and are not delivered to other users or services.
 
 ### Repository review and proposed first milestone
 
