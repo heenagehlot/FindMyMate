@@ -5,7 +5,7 @@
 **Baseline reviewed:** Public `main` branch, 18 November 2026
 **Previous release:** 0.2.0 — multi-screen frontend prototype
 **Target release:** 0.3.0 — first persistent backend-connected application foundation
-**Status:** Proposed plan — local audit completed; implementation has not started
+**Status:** Milestones 0–1 complete; authentication provider, database, and later milestones remain pending
 
 ---
 
@@ -521,6 +521,9 @@ Every API-backed screen must support loading, empty, success and error states. I
 Each milestone must be completed, tested, documented and approved before the next begins.
 
 ### Milestone 0 — Local repository audit and architecture decisions
+**Status: Complete — 18 November 2026**
+
+Rollback point: `v0.3.0-pre-m1-2026-11-18` (published tag at the approved pre-implementation baseline).
 
 **Goal:** establish the exact current local baseline and avoid unsafe rewrites.
 
@@ -541,6 +544,7 @@ Acceptance:
 - No code is changed before approval.
 
 ### Milestone 1 — Backend skeleton and environment configuration
+**Status: Complete — 18 November 2026**
 
 **Goal:** create a clean backend that can start and respond safely.
 
@@ -560,6 +564,8 @@ Acceptance:
 - Invalid/missing environment variables fail with a clear safe message.
 - No secrets are committed.
 - Existing frontend still works independently.
+
+**Verification record (18 November 2026):** `npm test` passed all 7 tests; the live health endpoint returned HTTP 200; an unknown API route returned a safe HTTP 404; oversized JSON returned HTTP 413; production configuration without explicit CORS origins failed validation; the existing frontend returned HTTP 200; `.env` and `server/node_modules` are ignored by Git. `npm audit --omit=dev` reported 0 vulnerabilities. This endpoint checks API liveness only; it does not connect to or check a database.
 
 ### Milestone 2 — Database schema and migrations
 
@@ -838,7 +844,7 @@ Paste this prompt into Copilot Chat in the local FindMyMate repository. This is 
 |---|---|---|
 | 0.1.0 | Responsive landing and discovery concept | Completed baseline |
 | 0.2.0 | Multi-screen frontend prototype | Documented complete |
-| 0.3.0 | Backend, database, authentication, persistent profiles, discovery, likes and mutual matches | Planned |
+| 0.3.0 | Backend, database, authentication, persistent profiles, discovery, likes and mutual matches | Milestones 0–1 complete; remaining milestones planned |
 | 0.4.0 | Messaging, notifications, media, moderation and advanced matching | Future assessment |
 | 1.0.0 | Public MVP after operational, security, privacy and legal readiness | Future |
 

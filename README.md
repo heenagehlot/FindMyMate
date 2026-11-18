@@ -12,7 +12,7 @@ FindMyMate is an India-first roommate discovery concept. It is intended to help 
 |---|---|---|
 | **0.1.0** | Responsive landing and discovery demo with fictional profiles, city and budget filters, and session-only like/pass actions | **Completed baseline** |
 | **0.2.0** | Multi-screen frontend prototype covering account UI, onboarding, profile, discovery, demo connections, settings, notifications, and safety | **Frontend prototype complete** |
-| **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Audit and proposed architecture decision complete; owner approval pending** |
+| **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Milestone 1 local backend skeleton complete; auth and database not selected** |
 
 Version 0.1.0 remains the preserved starting point. Its baseline overview is archived in [`docs/version-0.1.0.md`](docs/version-0.1.0.md), and its implementation remains available in Git history. Version 0.2.0 scope, progress, and acceptance status are documented in [`docs/version-0.2.0.md`](docs/version-0.2.0.md).
 
@@ -29,7 +29,7 @@ The application preserves the v0.1.0 landing and discovery concept and adds the 
 - Safety guidance, FAQs, and About, Contact, Terms, Privacy, and Community prototype notices.
 - Responsive navigation and layouts for public and prototype screens.
 
-This is a frontend prototype, not an operating service. There is no real account system, backend, matching, messaging, verification, moderation, or persistent profile data. Form and interaction state remains in page memory; passwords are cleared and are never saved or sent. All sample profiles are fictional. Do not enter real personal information. Compatibility descriptions are illustrative and are not validated recommendations or guarantees.
+The frontend remains a prototype, and the new API is only a local development skeleton with a health endpoint. There is no real account system, database, matching, messaging, verification, moderation, or persistent profile data. Form and interaction state remains in page memory; passwords are cleared and are never saved or sent. All sample profiles are fictional. Do not enter real personal information. Compatibility descriptions are illustrative and are not validated recommendations or guarantees.
 
 ## Run locally
 
@@ -41,6 +41,21 @@ python3 -m http.server 4173
 
 Open [http://localhost:4173](http://localhost:4173).
 
+## Run the backend skeleton
+
+The local API requires Node.js 22.13 or newer and npm. From the repository root, copy the example environment file, then install and start the backend:
+
+```sh
+cp .env.example .env
+cd server
+npm ci
+npm run dev
+```
+
+The liveness-only endpoint is [http://127.0.0.1:3000/api/v1/health](http://127.0.0.1:3000/api/v1/health). Run the backend tests from `server/` with `npm test`. The endpoint confirms only that the API process responds; it does not check a database.
+
+The API currently has no database, account/authentication endpoints, profile persistence, discovery, likes, or matches. Do not submit real user information. `.env` is ignored by Git; commit only placeholders in `.env.example`.
+
 ## Version 0.2.0 development approach
 
 Version 0.2.0 is scoped as a frontend prototype, not a production service. Its guided screens and simulated features use fictional data. Real authentication, server-backed profiles, persistent matching, and production messaging are explicitly deferred to later development.
@@ -49,11 +64,11 @@ The six v0.2.0 frontend milestones are complete. The original v0.1.0 landing/dis
 
 ## Version 0.3.0 development approach
 
-The proposed Version 0.3.0 plan is recorded in [`docs/version-0.3.0.md`](docs/version-0.3.0.md). Its first milestone is an audit and architecture decision only; backend implementation must wait for the project owner's approval.
+The proposed Version 0.3.0 plan is recorded in [`docs/version-0.3.0.md`](docs/version-0.3.0.md). Milestone 0 audit and the approved Milestone 1 local backend skeleton are complete.
 
-The local audit confirmed that the project remains a static HTML/CSS/JavaScript application. The repository has no package manifest or lockfile, backend directory, database schema/migrations, automated test suite, or API integration. Registration, sign-in, profile setup, discovery, likes, matches, messages, settings, and reports are still client-side demonstrations. The current frontend can be retained and connected gradually; no framework rewrite is needed.
+The existing frontend remains static HTML/CSS/JavaScript; registration, sign-in, profile setup, discovery, likes, matches, messages, settings, and reports are still client-side demonstrations. A separate Express API now provides environment validation, CORS allow-listing, security headers, request-size and rate limits, privacy-conscious request logging, safe errors, and a health endpoint. The current frontend can be retained and connected gradually; no framework rewrite is needed.
 
-The [proposed architecture decision](docs/architecture-decision-v0.3.0.md) favors managed authentication and recommends Node.js/Express, PostgreSQL, and Prisma for owner review. No authentication provider has been selected: current provider pricing, data-processing terms, regional availability, and staging cost need owner review. No backend, database, real authentication, deployment, or dependency changes have been started.
+The [architecture decision](docs/architecture-decision-v0.3.0.md) records the approved Node.js/Express/PostgreSQL/Prisma direction and managed-auth preference. No authentication provider or database has been connected. The owner requires India-only storage/processing, so provider-specific regional guarantees and data-processing terms must be verified before storing real data. The stated staging budget was `3000` with no currency specified; no paid service has been provisioned.
 
 ## Progress record
 
@@ -82,9 +97,13 @@ The [proposed architecture decision](docs/architecture-decision-v0.3.0.md) favor
 - Added the supplied Version 0.3.0 development plan to `docs/version-0.3.0.md`.
 - Rechecked all 23 public and prototype routes; they loaded without page-level browser errors.
 - Rechecked sign-up validation and password clearing, the six-step profile journey, profile-edit prefill, discovery filters, likes, match removal, simulated messaging, notifications, settings, block/unblock, and sign-out.
-- Confirmed the repository has no backend, package manifest, database, migrations, or automated test suite; the current interactions remain frontend-only.
+- At the Milestone 0 baseline, confirmed there was no backend, package manifest, database, migrations, or automated test suite; the existing interactions remain frontend-only.
 - Milestone 0 audit is complete. Architecture/provider decisions and owner approval are required before Milestone 1 implementation.
 - Prepared a proposed architecture decision comparing managed authentication with custom authentication, mapping onboarding fields, and listing the proposed Milestone 1 files. No provider or backend implementation has been approved.
+- Owner approved the Node.js/Express/PostgreSQL/Prisma direction, a managed-auth approach, India-only data storage/processing, and Milestone 1 scope.
+- Created and pushed the rollback tag `v0.3.0-pre-m1-2026-11-18` before structural changes.
+- Added the backend health skeleton, validated environment configuration, restrictive CORS defaults, security headers, request limits, privacy-conscious request logging, safe error responses, and automated checks.
+- Verified a clean `npm ci`, `npm test` (7/7 passing), `npm audit --omit=dev` (0 vulnerabilities), live API health (`200`), safe unknown-route response (`404`), frontend response (`200`), and `.env` Git-ignore behavior. No database, authentication provider, real-user data, or deployment was added.
 
 ### Repository review and proposed first milestone
 
