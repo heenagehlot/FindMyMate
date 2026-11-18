@@ -12,7 +12,7 @@ FindMyMate is an India-first roommate discovery concept. It is intended to help 
 |---|---|---|
 | **0.1.0** | Responsive landing and discovery demo with fictional profiles, city and budget filters, and session-only like/pass actions | **Completed baseline** |
 | **0.2.0** | Multi-screen frontend prototype covering account UI, onboarding, profile, discovery, demo connections, settings, notifications, and safety | **Frontend prototype complete** |
-| **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Planned** |
+| **0.3.0** | Backend and application foundation, including API, database, authentication, and persistent profiles | **Plan added; Milestone 0 audit complete; owner approval pending** |
 
 Version 0.1.0 remains the preserved starting point. Its baseline overview is archived in [`docs/version-0.1.0.md`](docs/version-0.1.0.md), and its implementation remains available in Git history. Version 0.2.0 scope, progress, and acceptance status are documented in [`docs/version-0.2.0.md`](docs/version-0.2.0.md).
 
@@ -47,6 +47,14 @@ Version 0.2.0 is scoped as a frontend prototype, not a production service. Its g
 
 The six v0.2.0 frontend milestones are complete. The original v0.1.0 landing/discovery experience remains available, and every implemented account, profile, matching, messaging, settings, and safety action is labelled as a local simulation. No backend or production account, matching, or messaging service is implemented.
 
+## Version 0.3.0 development approach
+
+The proposed Version 0.3.0 plan is recorded in [`docs/version-0.3.0.md`](docs/version-0.3.0.md). Its first milestone is an audit and architecture decision only; backend implementation must wait for the project owner's approval.
+
+The local audit confirmed that the project remains a static HTML/CSS/JavaScript application. The repository has no package manifest or lockfile, backend directory, database schema/migrations, automated test suite, or API integration. Registration, sign-in, profile setup, discovery, likes, matches, messages, settings, and reports are still client-side demonstrations. The current frontend can be retained and connected gradually; no framework rewrite is needed.
+
+The plan recommends evaluating a managed authentication provider against reviewed custom authentication, with Node.js/Express, PostgreSQL, and Prisma as a possible backend direction. The authentication provider, hosting/data region, and cost must be decided before implementation. No backend, database, real authentication, deployment, or dependency changes have been started.
+
 ## Progress record
 
 ### 2026-11-16 — Version 0.2.0 kickoff
@@ -68,6 +76,14 @@ The six v0.2.0 frontend milestones are complete. The original v0.1.0 landing/dis
 - Updated this README to distinguish the completed frontend prototype from future backend work; `docs/version-0.1.0.md` remains the archived v0.1.0 overview.
 - Exercised sign-up and onboarding in the browser, including invalid password and budget cases, back-navigation retention, profile completion, and checks that no password fields or local-storage data remain after registration.
 - Verified the prototype flows and no horizontal overflow at 320px, 375px, 390px, 430px, 768px, 1366px, and 1440px; browser checks found no page-level errors. All interactions remain local demonstrations and are not delivered to other users or services.
+
+### 2026-11-18 — Version 0.3.0 audit
+
+- Added the supplied Version 0.3.0 development plan to `docs/version-0.3.0.md`.
+- Rechecked all 23 public and prototype routes; they loaded without page-level browser errors.
+- Rechecked sign-up validation and password clearing, the six-step profile journey, profile-edit prefill, discovery filters, likes, match removal, simulated messaging, notifications, settings, block/unblock, and sign-out.
+- Confirmed the repository has no backend, package manifest, database, migrations, or automated test suite; the current interactions remain frontend-only.
+- Milestone 0 audit is complete. Architecture/provider decisions and owner approval are required before Milestone 1 implementation.
 
 ### Repository review and proposed first milestone
 
